@@ -1,84 +1,165 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <link rel="stylesheet" href="palette.css">
-</head>
-<body>
-  <div id="header">
-    <div class="omnibox-wrapper">
-      <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="search-input" placeholder="Search tabs, history, bookmarks...">
-      <button id="settings-btn" title="Settings">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.82 1.51l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-      </button>
-    </div>
-  </div>
-
-  <ul id="results-list"></ul>
-
-  <div id="settings-view" class="hidden">
-    <h2>Settings</h2>
-    
-    <div class="setting-row">
-      <label>Visual Style</label>
-      <div class="options-group">
-        <select id="theme-select">
-          <option value="chrome-dark">Chrome Dark</option>
-          <option value="chrome-light">Chrome Light</option>
-          <option value="apple">Apple / Spotlight</option>
-          <option value="vscode">VS Code</option>
-          <option value="gruvbox">Gruvbox</option>
-          <option value="dracula">Dracula</option>
-        </select>
+  <head>
+    <link rel="stylesheet" href="palette.css" />
+  </head>
+  <body>
+    <div id="header">
+      <div class="omnibox-wrapper">
+        <svg
+          class="search-icon"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search tabs, history, bookmarks..."
+        />
+        <button id="settings-btn" title="Settings">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="3"></circle>
+            <path
+              d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.82 1.51l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
+            ></path>
+          </svg>
+        </button>
       </div>
     </div>
 
-    <div class="setting-row">
-      <label>Accent Color</label>
-      <div class="color-swatches">
-        <label class="swatch-label"><input type="radio" name="accent" value="#1a73e8"><span style="--c:#1a73e8"></span></label>
-        <label class="swatch-label"><input type="radio" name="accent" value="#e8a832"><span style="--c:#e8a832"></span></label>
-        <label class="swatch-label"><input type="radio" name="accent" value="#1e8e3e"><span style="--c:#1e8e3e"></span></label>
-        <label class="swatch-label"><input type="radio" name="accent" value="#d93025"><span style="--c:#d93025"></span></label>
-        <label class="swatch-label"><input type="radio" name="accent" value="#9334e6"><span style="--c:#9334e6"></span></label>
-        <label class="swatch-label"><input type="radio" name="accent" value="#fe8019"><span style="--c:#fe8019"></span></label>
-        <label class="swatch-label"><input type="radio" name="accent" value="#007AFF"><span style="--c:#007AFF"></span></label>
+    <ul id="results-list"></ul>
+
+    <div id="settings-view" class="hidden">
+      <h2>Settings</h2>
+
+      <div class="setting-row">
+        <label>Visual Style</label>
+        <div class="options-group">
+          <select id="theme-select">
+            <option value="chrome-dark">Chrome Dark</option>
+            <option value="chrome-light">Chrome Light</option>
+            <option value="apple">Apple Spotlight</option>
+            <option value="vscode">VS Code</option>
+            <option value="gruvbox">Gruvbox</option>
+            <option value="dracula">Dracula</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <label>Accent Color</label>
+        <div class="color-swatches">
+          <label class="swatch-label"
+            ><input type="radio" name="accent" value="#fe8017" /><span
+              style="--c: #fe8019"
+            ></span
+          ></label>
+          <label class="swatch-label"
+            ><input type="radio" name="accent" value="#1a73e8" /><span
+              style="--c: #1a73e8"
+            ></span
+          ></label>
+          <label class="swatch-label"
+            ><input type="radio" name="accent" value="#e8a832" /><span
+              style="--c: #e8a832"
+            ></span
+          ></label>
+          <label class="swatch-label"
+            ><input type="radio" name="accent" value="#1e8e3e" /><span
+              style="--c: #1e8e3e"
+            ></span
+          ></label>
+          <label class="swatch-label"
+            ><input type="radio" name="accent" value="#d93025" /><span
+              style="--c: #d93025"
+            ></span
+          ></label>
+          <label class="swatch-label"
+            ><input type="radio" name="accent" value="#9334e6" /><span
+              style="--c: #9334e6"
+            ></span
+          ></label>
+          <label class="swatch-label"
+            ><input type="radio" name="accent" value="#007AFF" /><span
+              style="--c: #007aff"
+            ></span
+          ></label>
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <div class="label-row">
+          <label>Window Opacity</label>
+          <span id="opacity-val" class="val-display">100%</span>
+        </div>
+        <div class="range-wrapper">
+          <input
+            type="range"
+            id="opacity-slider"
+            name="opacity"
+            min="0.5"
+            max="1.0"
+            step="0.05"
+            value="1.0"
+          />
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <div class="label-row">
+          <label>Interface Scale</label>
+          <span id="scale-val" class="val-display">100%</span>
+        </div>
+        <div class="range-wrapper">
+          <input
+            type="range"
+            id="scale-slider"
+            name="scale"
+            min="1"
+            max="1.5"
+            step="0.05"
+            value="1.0"
+          />
+        </div>
+      </div>
+
+      <div class="setting-row">
+        <label>Layout Density</label>
+        <div class="options-group">
+          <label
+            ><input type="radio" name="density" value="comfortable" />
+            Comfortable</label
+          >
+          <label
+            ><input type="radio" name="density" value="compact" />
+            Compact</label
+          >
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="save-settings-btn">Save & Apply</button>
       </div>
     </div>
 
-    <div class="setting-row">
-      <div class="label-row">
-        <label>Window Opacity</label>
-        <span id="opacity-val" class="val-display">100%</span>
-      </div>
-      <div class="range-wrapper">
-        <input type="range" id="opacity-slider" name="opacity" min="0.5" max="1.0" step="0.05" value="1.0">
-      </div>
-    </div>
-
-    <div class="setting-row">
-      <div class="label-row">
-        <label>Interface Scale</label>
-        <span id="scale-val" class="val-display">100%</span>
-      </div>
-      <div class="range-wrapper">
-        <input type="range" id="scale-slider" name="scale" min="1" max="1.5" step="0.05" value="1.0">
-      </div>
-    </div>
-
-    <div class="setting-row">
-      <label>Layout Density</label>
-      <div class="options-group">
-        <label><input type="radio" name="density" value="comfortable"> Comfortable</label>
-        <label><input type="radio" name="density" value="compact"> Compact</label>
-      </div>
-    </div>
-
-    <div class="actions">
-      <button id="save-settings-btn">Save & Apply</button>
-    </div>
-  </div>
-
-  <script src="palette.js"></script>
-</body>
+    <script src="palette.js"></script>
+  </body>
 </html>

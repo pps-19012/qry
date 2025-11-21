@@ -19,7 +19,7 @@ let selectedIndex = 0;
 // Default user settings
 const DEFAULTS = { 
   theme: 'chrome-dark', 
-  accent: '#1a73e8', 
+  accent: '#fe8017', 
   density: 'comfortable',
   opacity: '1.0',
   scale: '1.0'

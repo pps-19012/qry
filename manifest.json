@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Context - Your Browser Command Center",
-  "version": "0.6.0",
-  "description": "Search tabs, bookmarks, and history in a flash.",
+  "name": "Qry - Your Browser Command Center",
+  "version": "0.0.1",
+  "description": "The fastest way to search and control your browser.",
   
   "permissions": [
     "tabs",
