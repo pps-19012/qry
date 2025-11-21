@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "Context - Your Browser Command Center",
+  "version": "0.6.0",
+  "description": "Search tabs, bookmarks, and history in a flash.",
+  
+  "permissions": [
+    "tabs",
+    "storage",
+    "bookmarks",
+    "history",
+    "scripting",
+    "favicon"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+
+  "commands": {
+    "toggle-palette": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Space",
+        "mac": "Command+Shift+Space"
+      },
+      "description": "Open the Context command palette"
+    }
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["palette.html", "fuse.min.mjs"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
